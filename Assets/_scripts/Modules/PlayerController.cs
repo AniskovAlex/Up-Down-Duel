@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         float rotation = Input.GetAxis("Horizontal");
         if (rotation != 0)
         {
-            gameObject.transform.Rotate(-Vector3.forward, rotation * rotationSpeed);
+            transform.Rotate(-Vector3.forward, rotation * rotationSpeed);
         }
 
         float move = Input.GetAxis("Vertical");
