@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotController : MonoBehaviour
+public class BotController : Shootable
 {
     public float rotationSpeed = 1;
     public float moveSpeed = 1;
