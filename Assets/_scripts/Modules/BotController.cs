@@ -7,17 +7,18 @@ public class BotController : Shootable
     public float rotationSpeed = 1f;
     public float moveSpeed = 1f;
     public float reloadTime = 1f;
-    float currentReloadTime = 0f;
-    float saveTime = 0.2f;
-    float currentSaveTime = 0f;
+    
     Rigidbody2D rigidbody;
-    Collider2D threat = null;
+    GameObject player = null;
     Collider2D colliderBody;
-    ContactFilter2D contactFilter;
+    Collider2D threat = null;
+
+    float saveTime = 0.2f;
+    float currentReloadTime = 0f;
+    float currentSaveTime = 0f;
 
     bool evasion = false;
-    int evationDirection = 1;
-    GameObject player = null;
+    int evasionDirection = 1;
 
     void Start()
     {
@@ -26,12 +27,11 @@ public class BotController : Shootable
         colliderBody = GetComponent<CircleCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (evasion)
         {
-            rigidbody.velocity = evationDirection * gameObject.transform.right * moveSpeed;
+            rigidbody.velocity = evasionDirection * gameObject.transform.right * moveSpeed;
         }
         else
         {
@@ -110,7 +110,7 @@ public class BotController : Shootable
     {
         Vector3 newDirection = Vector3.Reflect(oldDirection, oldHit.normal);
         RaycastHit2D hit = Physics2D.Raycast(oldHit.point, newDirection);
-        if (count > 5)
+        if (count > 10)
             return false;
         if (hit == false)
             return false;
@@ -129,7 +129,7 @@ public class BotController : Shootable
                 if (CheckBulletDirection(collision))
                 {
                     threat = collision;
-                    evationDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
+                    evasionDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
                     evasion = true;
                 }
                 else
@@ -142,7 +142,7 @@ public class BotController : Shootable
             if (CheckBulletDirection(collision))
             {
                 threat = collision;
-                evationDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
+                evasionDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
                 evasion = true;
             }
         }

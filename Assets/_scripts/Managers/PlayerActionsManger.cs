@@ -8,8 +8,10 @@ public class PlayerActionsManger : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] Text textObject;
     PlayerController player;
+
     int shootsCount = 1;
     bool firstShoot = true;
+
     float timeBetweenShoots = 0.4f;
     float currentTime = 0f;
 

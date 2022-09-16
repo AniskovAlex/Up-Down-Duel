@@ -12,7 +12,6 @@ public class ResetManager : MonoBehaviour
     Vector3 botStartPosition;
     Quaternion botStartRotation;
 
-    // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
@@ -23,7 +22,6 @@ public class ResetManager : MonoBehaviour
         playerStartRotation = player.transform.rotation;
         botStartPosition = bot.transform.position;
         botStartRotation = bot.transform.rotation;
-
     }
 
     public void Reset(GameObject gameObject)

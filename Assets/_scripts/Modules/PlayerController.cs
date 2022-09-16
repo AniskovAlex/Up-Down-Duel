@@ -7,15 +7,14 @@ public class PlayerController : Shootable
 {
     public float rotationSpeed = 1f;
     public float moveSpeed = 1f;
-    Rigidbody2D rigidbody;
     public Action ShootAction;
-    // Start is called before the first frame update
+    Rigidbody2D rigidbody;
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float rotation = Input.GetAxis("Horizontal");
