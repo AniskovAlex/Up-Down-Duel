@@ -8,19 +8,42 @@ public class BotController : Shootable
     public float moveSpeed = 1f;
     public float reloadTime = 1f;
     float currentReloadTime = 0f;
+    float saveTime = 0.2f;
+    float currentSaveTime = 0f;
     Rigidbody2D rigidbody;
+    Collider2D threat = null;
+    Collider2D colliderBody;
+    ContactFilter2D contactFilter;
 
+    bool evasion = false;
+    int evationDirection = 1;
     GameObject player = null;
 
     void Start()
     {
         player = FindObjectOfType<PlayerController>().gameObject;
         rigidbody = GetComponent<Rigidbody2D>();
+        colliderBody = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (evasion)
+        {
+            rigidbody.velocity = evationDirection * gameObject.transform.right * moveSpeed;
+        }
+        else
+        {
+            if (currentSaveTime > 0)
+                currentSaveTime -= Time.deltaTime;
+            else
+            {
+                rigidbody.velocity = Vector3.zero;
+                currentSaveTime = saveTime;
+            }
+        }
+
         if (player != null)
         {
             Vector3 direction = GetTargetDirection();
@@ -75,7 +98,6 @@ public class BotController : Shootable
                 return true;
             if (hit.collider.gameObject.GetComponent<Wall>() != null)
             {
-                Vector3 possible = direction;
                 if (RicochetHit(hit, direction, 1))
                     return true;
             }
@@ -96,5 +118,65 @@ public class BotController : Shootable
             return true;
         else
             return RicochetHit(hit, newDirection, count + 1);
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (threat != null)
+        {
+            if (collision.Distance(colliderBody).distance <= threat.Distance(colliderBody).distance)
+            {
+                if (CheckBulletDirection(collision))
+                {
+                    threat = collision;
+                    evationDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
+                    evasion = true;
+                }
+                else
+                    if (collision == threat)
+                    evasion = false;
+            }
+        }
+        else
+        {
+            if (CheckBulletDirection(collision))
+            {
+                threat = collision;
+                evationDirection = GetEavasionDirection(collision.attachedRigidbody.velocity, transform.position - collision.transform.position);
+                evasion = true;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision == threat)
+        {
+            threat = null;
+            evasion = false;
+        }
+    }
+
+    int GetEavasionDirection(Vector3 velocity, Vector3 disatnce)
+    {
+        int direction = -1;
+        float angle1 = Vector3.Angle(velocity, transform.up);
+        if (angle1 > 90)
+            direction *= -1;
+        float angle = Vector3.SignedAngle(disatnce, velocity, Vector3.forward);
+        if (angle > 0)
+            direction *= -1;
+        return direction;
+    }
+
+    bool CheckBulletDirection(Collider2D collision)
+    {
+        RaycastHit2D hitBulletRight = Physics2D.Raycast(collision.transform.position + (collision.transform.right * 0.05f), collision.attachedRigidbody.velocity);
+        RaycastHit2D hitBulletLeft = Physics2D.Raycast(collision.transform.position + (-collision.transform.right * 0.05f), collision.attachedRigidbody.velocity);
+        if (hitBulletRight && hitBulletRight.rigidbody == rigidbody)
+            return true;
+        if (hitBulletLeft && hitBulletLeft.rigidbody == rigidbody)
+            return true;
+        return false;
     }
 }

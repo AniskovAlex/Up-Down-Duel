@@ -12,7 +12,6 @@ public class BulletController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         currentVelocity = transform.up* bulletSpeed;
         rigidbody.velocity = currentVelocity;
-        Collider2D sdfsdf;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

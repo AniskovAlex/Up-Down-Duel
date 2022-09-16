@@ -446,6 +446,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1449473005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4012551303065876435, guid: ad34bd06f920276428c97565e774be60, type: 3}
+  m_PrefabInstance: {fileID: 6999719323749987590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1449473010
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449473005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!1 &1726845283
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,12 +815,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4360494631518645940, guid: 53f852d95c4115347901204b621e124b, type: 3}
     - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
+      propertyPath: moveSpeed
+      value: 2.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: bulletField
       value: 
       objectReference: {fileID: 1758584931}
     - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: rotationSpeed
-      value: 1.5
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7356309329313034023, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: m_Mass
