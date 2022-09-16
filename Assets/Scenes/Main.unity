@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -223,11 +223,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.45
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.95
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalPosition.z
@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9543512
+      value: 0.91883695
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalRotation.x
@@ -247,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2986868
+      value: -0.3946374
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1994016732513575462, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -34.758
+      value: -46.487
       objectReference: {fileID: 0}
     - target: {fileID: 8117245926883808107, guid: cd4e3c66a6ab1da40826aeb34d51ed12, type: 3}
       propertyPath: m_Name
@@ -694,11 +694,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6785265438531075288, guid: 4ee280e49f43c8c489a2d5c92d25d909, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19994351
+      value: -2.1
       objectReference: {fileID: 0}
     - target: {fileID: 6785265438531075288, guid: 4ee280e49f43c8c489a2d5c92d25d909, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5999908
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 6785265438531075288, guid: 4ee280e49f43c8c489a2d5c92d25d909, type: 3}
       propertyPath: m_LocalPosition.z
@@ -751,11 +751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052332204115808634, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.69
+      value: 3.79
       objectReference: {fileID: 0}
     - target: {fileID: 4052332204115808634, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.65
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 4052332204115808634, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: m_LocalPosition.z
@@ -789,6 +789,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -39.359
       objectReference: {fileID: 0}
+    - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4360494631518645940, guid: 53f852d95c4115347901204b621e124b, type: 3}
+    - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
+      propertyPath: bulletField
+      value: 
+      objectReference: {fileID: 1758584931}
     - target: {fileID: 5480074532244425927, guid: ad34bd06f920276428c97565e774be60, type: 3}
       propertyPath: rotationSpeed
       value: 1.5
