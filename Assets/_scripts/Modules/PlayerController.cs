@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class PlayerController : Shootable
     public float rotationSpeed = 1f;
     public float moveSpeed = 1f;
     Rigidbody2D rigidbody;
+    public Action ShootAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class PlayerController : Shootable
         if (Input.GetButtonDown("Jump"))
         {
             Shoot();
+            ShootAction();
         }
     }
 }
